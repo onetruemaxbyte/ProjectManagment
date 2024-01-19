@@ -1,11 +1,25 @@
-﻿namespace ProjectManagment.Models
+﻿using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
+
+namespace ProjectManagment.Models
 {
     public class Employee
     {
-        private string EmployeeName { get; set; }
-        private string EmployeeFirstName { get; set; }
-        private string EmployeeLastName { get; set; }
-        private string EmployeeEmail { get; set; }
+        [Key]
+        public int EmployeeId { get; set; }
 
+        [Required]
+        public string FirstName { get; set; }
+
+        [Required]
+        public string LastName { get; set; }
+
+        [Required]
+        public string Patronymic { get; set; } 
+
+        [Required]
+        public string Email { get; set; }
+
+        public ICollection<ProjectAssignment> ProjectAssignments { get; set; }
     }
 }
